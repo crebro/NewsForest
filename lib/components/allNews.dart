@@ -27,11 +27,14 @@ class AllNews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: ListView.builder(
-            itemCount: sources.length,
-            itemBuilder: (context, index) {
-              return NewsSection(source: sources[index]);
-            }));
+    return Column(
+        children: List.generate(this.sources.length,
+            (index) => NewsSection(source: sources[index])));
+    // return Expanded(
+    //     child: ListView.builder(
+    //         itemCount: sources.length,
+    //         itemBuilder: (context, index) {
+    //           return NewsSection(source: sources[index]);
+    //         }));
   }
 }

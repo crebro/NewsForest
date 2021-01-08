@@ -67,7 +67,7 @@ class NewsData extends StatelessWidget {
   String getTruncatedTitle(String normal) {
     int limit = 47;
     if (normal.length > limit) {
-      return normal.substring(0, limit) + " .. ";
+      return normal + " .. ";
     }
     return normal;
   }
