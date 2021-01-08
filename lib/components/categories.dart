@@ -1,15 +1,19 @@
 import 'package:NewsForest/components/categoryItem.dart';
 import 'package:NewsForest/constants/category.dart';
+import 'package:NewsForest/pages/Banking.dart';
+import 'package:NewsForest/pages/GeneralNews.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter/material.dart';
 
 class Categories extends StatelessWidget {
   final List<Category> categories = [
     Category(
+        page: GeneralNewsPage(),
         name: "General",
         imageLocation:
             "https://images.unsplash.com/photo-1546422904-90eab23c3d7e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80"),
     Category(
+        page: BankingNewsPage(),
         name: "Banking",
         imageLocation:
             "https://cdn.pixabay.com/photo/2018/01/17/04/14/stock-exchange-3087396_960_720.jpg"),

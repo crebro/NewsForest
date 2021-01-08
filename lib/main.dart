@@ -10,7 +10,9 @@ main(List<String> args) {
       ChangeNotifierProvider<NewsProvider>.value(value: NewsProvider()),
     ],
     child: MaterialApp(
-      theme: ThemeData(fontFamily: GoogleFonts.robotoSlab().fontFamily),
+      theme: ThemeData(
+          fontFamily: GoogleFonts.robotoSlab().fontFamily,
+          appBarTheme: AppBarTheme(color: Colors.black)),
       home: HomePage(),
       debugShowCheckedModeBanner: false,
       title: "News Forest | Everything News, Nepal ",
