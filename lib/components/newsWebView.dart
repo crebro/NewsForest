@@ -9,18 +9,18 @@ class NewsWebView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            ApplicationTitle(),
-            Expanded(
-              child: WebView(
-                javascriptMode: JavascriptMode.unrestricted,
-                initialUrl: this.url,
-              ),
+      appBar: AppBar(
+        title: Text("News Post"),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: WebView(
+              javascriptMode: JavascriptMode.unrestricted,
+              initialUrl: this.url,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

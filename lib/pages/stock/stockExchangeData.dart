@@ -1,3 +1,4 @@
+import 'package:NewsForest/components/stockDataItem.dart';
 import 'package:NewsForest/models/stockData.dart';
 import 'package:NewsForest/services/apiExtractor.dart';
 import 'package:flutter/material.dart';
@@ -35,20 +36,11 @@ class _StockExchangeDataState extends State<StockExchangeData> {
       appBar: AppBar(
         title: Text("NEPSE Data"),
       ),
-      body: Container(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: DataTable(
-              columns: [DataColumn(label: Text("Name"))],
-              rows: List.generate(
-                  stockData.length,
-                  (index) => DataRow(cells: [
-                        DataCell(Text(
-                          stockData[index].name,
-                        ))
-                      ]))),
-        ),
-      ),
+      body: ListView.builder(
+          itemCount: stockData.length,
+          itemBuilder: (context, index) {
+            return StockDataItem(stockData: stockData[index]);
+          }),
     );
   }
 }
