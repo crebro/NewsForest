@@ -41,6 +41,12 @@ class CompanyDataPage extends StatelessWidget {
                     .make(),
               ],
             ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 5),
+              color: Colors.black,
+              width: MediaQuery.of(context).size.width,
+              height: 3,
+            ),
             buildValue("High", this.stockData.maxPrice),
             buildValue("Low", this.stockData.minPrice),
             buildValue("Traded Quantity", this.stockData.tradedShares),

@@ -8,7 +8,6 @@ class JsonService {
 
   Future getData() async {
     var response = await http.get(this.url);
-    // print(response.body);
     return jsonDecode(jsonEncode(response.body));
   }
 }

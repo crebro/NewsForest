@@ -7,12 +7,9 @@ import 'package:NewsForest/services/jsonService.dart';
 
 class ApiExtractor {
   Future<List<News>> getAllNews(key) async {
-    print("function called");
-    print(key);
     List<News> returnNews = [];
     JsonService jsonService =
         JsonService(requestLocation + "/" + key.toString());
-    print(jsonService.url);
     List result = json.decode(await jsonService.getData());
 
     returnNews = result

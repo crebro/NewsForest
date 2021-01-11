@@ -2,6 +2,7 @@ import 'package:NewsForest/components/news.dart';
 import 'package:NewsForest/components/newsListItem.dart';
 import 'package:NewsForest/providers/newsProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
 class GeneralNewsPage extends StatelessWidget {
@@ -12,18 +13,15 @@ class GeneralNewsPage extends StatelessWidget {
         appBar: AppBar(
           title: Text("General News"),
         ),
-        body: GridView.count(
-            childAspectRatio: 2 / 2.7,
-            crossAxisCount: 2,
-            children: List.generate(
-                generalNews.length, (index) => NewsData(generalNews[index]))));
-
-    // body: ListView.builder(
-    //     itemCount: generalNews.length,
-    //     itemBuilder: (context, index) {
-    //       return NewsListItem(
-    //         news: generalNews[index],
-    //       );
-    //     }));
+        body: generalNews.isNotEmpty
+            ? GridView.count(
+                childAspectRatio: 2 / 2.7,
+                crossAxisCount: 2,
+                children: List.generate(generalNews.length,
+                    (index) => NewsData(generalNews[index])))
+            : SpinKitFoldingCube(
+                color: Colors.blue,
+                size: 50,
+              ));
   }
 }
