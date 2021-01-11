@@ -11,7 +11,12 @@ class CompanyDataPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(stockData.name),
       ),
-      // body: ,
+      body: Container(
+        margin: EdgeInsets.all(20),
+        child: Column(
+          children: [],
+        ),
+      ),
     );
   }
 }
