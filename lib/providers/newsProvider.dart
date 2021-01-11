@@ -13,4 +13,14 @@ class NewsProvider extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  get getAllNews {
+    List<News> news = [];
+    allNews.forEach((key, value) {
+      value.forEach((element) {
+        news.add(element);
+      });
+    });
+    return news;
+  }
 }
