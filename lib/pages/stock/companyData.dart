@@ -97,18 +97,6 @@ class CompanyDataPage extends StatelessWidget {
         style: TextStyle(color: Colors.grey[700], fontSize: 25),
       )
     ]);
-    // return RichText(
-    //     text: TextSpan(
-    //   children: [
-    //     TextSpan(
-    //         text: value.toString(), style: TextStyle(color: Colors.grey[700]))
-    //   ],
-    //   text: "$name: ",
-    //   style: TextStyle(
-    //       fontSize: 25,
-    //       color: Colors.grey[700],
-    //       fontFamily: GoogleFonts.robotoSlab().fontFamily),
-    // ));
   }
 
   bool isPositiveTrade() {

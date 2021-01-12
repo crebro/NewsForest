@@ -22,7 +22,6 @@ class ApplicationTitle extends StatelessWidget {
         child: Text(
           "News Forest",
           style: TextStyle(
-              // color: Color(0xff228B22),
               fontWeight: FontWeight.bold,
               fontFamily: GoogleFonts.robotoSlab().fontFamily,
               fontSize: 40),
