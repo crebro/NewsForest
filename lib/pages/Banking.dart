@@ -5,6 +5,7 @@ import 'package:NewsForest/pages/stock/stockExchangeData.dart';
 import 'package:NewsForest/providers/newsProvider.dart';
 import 'package:NewsForest/services/apiExtractor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -67,15 +68,31 @@ class _BankingNewsPageState extends State<BankingNewsPage> {
                           "https://cdn.pixabay.com/photo/2020/01/22/10/56/stock-exchange-4785080_960_720.jpg"),
                 ),
               ),
-              Column(
-                  children: List.generate(
-                this.news.length,
-                (index) => Card(
-                  child: ListTile(
-                    title: Text(news[index].title),
-                  ),
-                ),
-              ))
+
+              this.news.isNotEmpty
+                  ? Column(
+                      children: List.generate(
+                      this.news.length,
+                      (index) => Card(
+                        child: ListTile(
+                          title: Text(news[index].title),
+                        ),
+                      ),
+                    ))
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Center(
+                          child: SpinKitFoldingCube(
+                            color: Colors.blue,
+                            size: 50,
+                          ),
+                        ),
+                      ],
+                    )
               // ListView.builder(
               //     itemCount: this.news.length,
               //     itemBuilder: (context, index) {
