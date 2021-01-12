@@ -1,4 +1,5 @@
 import 'package:NewsForest/components/categoryItem.dart';
+import 'package:NewsForest/components/newsWebView.dart';
 import 'package:NewsForest/constants/category.dart';
 import 'package:NewsForest/models/news.dart';
 import 'package:NewsForest/pages/stock/stockExchangeData.dart';
@@ -68,14 +69,22 @@ class _BankingNewsPageState extends State<BankingNewsPage> {
                           "https://cdn.pixabay.com/photo/2020/01/22/10/56/stock-exchange-4785080_960_720.jpg"),
                 ),
               ),
-
               this.news.isNotEmpty
                   ? Column(
                       children: List.generate(
                       this.news.length,
-                      (index) => Card(
-                        child: ListTile(
-                          title: Text(news[index].title),
+                      (index) => GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NewsWebView(
+                                      url: news[index].articleUrl)));
+                        },
+                        child: Card(
+                          child: ListTile(
+                            title: Text(news[index].title),
+                          ),
                         ),
                       ),
                     ))
@@ -93,25 +102,6 @@ class _BankingNewsPageState extends State<BankingNewsPage> {
                         ),
                       ],
                     )
-              // ListView.builder(
-              //     itemCount: this.news.length,
-              //     itemBuilder: (context, index) {
-              //       return Card(
-              //         child: ListTile(
-              //           title: Text(news[index].title),
-              //         ),
-              //       );
-              // return VxBox(
-              //   child: Text(
-              //     news[index].title,
-              //     style: TextStyle(fontSize: 20),
-              //   ),
-              // )
-              //     .padding(EdgeInsets.all(15))
-              //     .margin(EdgeInsets.all(15))
-              //     .neumorphic()
-              //     .make();
-              // })
             ],
           ),
         ),
