@@ -1,4 +1,4 @@
-package com.example.NewsForest
+package com.codingdesires.NewsForest
 
 import io.flutter.embedding.android.FlutterActivity
 
