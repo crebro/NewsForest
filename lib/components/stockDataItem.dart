@@ -1,5 +1,6 @@
 import 'package:NewsForest/models/stockData.dart';
 import 'package:NewsForest/pages/stock/companyData.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class StockDataItem extends StatelessWidget {
@@ -21,24 +22,16 @@ class StockDataItem extends StatelessWidget {
               stockData.name,
               maxLines: 2,
             ),
-            leading: this.isPositiveTrade(stockData.difference)
-                ? Icon(
-                    Icons.keyboard_arrow_up,
-                    color: Colors.green,
-                    size: 35,
-                  )
-                : Icon(
-                    Icons.keyboard_arrow_down,
-                    color: Colors.red,
-                    size: 35,
-                  ),
+            leading: Icon(
+              this.getTradeIcon(),
+              color: this.getTradeColor(),
+              size: 35,
+            ),
             trailing: Text(
               stockData.difference.toString(),
               style: TextStyle(
                 fontSize: 20,
-                color: isPositiveTrade(stockData.difference)
-                    ? Colors.green
-                    : Colors.red,
+                color: getTradeColor(),
               ),
             )),
       ),
@@ -50,5 +43,25 @@ class StockDataItem extends StatelessWidget {
       return true;
     }
     return false;
+  }
+
+  IconData getTradeIcon() {
+    double number = this.stockData.difference;
+    if (number > 0) {
+      return Icons.keyboard_arrow_up;
+    } else if (number == 0) {
+      return Icons.remove;
+    }
+    return Icons.keyboard_arrow_down;
+  }
+
+  Color getTradeColor() {
+    double number = this.stockData.difference;
+    if (number > 0) {
+      return Colors.green;
+    } else if (number == 0) {
+      return Colors.orange;
+    }
+    return Colors.red;
   }
 }
